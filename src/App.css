@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+.MuiAppBar-root{
+  
+}
+.MuiDataGrid-root{
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  box-shadow: 50px
+}
+
+.MuiDataGrid-paper{
+  border-radius: 50px;
+}
