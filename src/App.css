@@ -36,9 +36,7 @@
     transform: rotate(360deg);
   }
 }
-.MuiAppBar-root{
-  
-}
+
 .MuiDataGrid-root{
   margin-top: 2%;
   margin-left: 10%;
@@ -48,4 +46,9 @@
 
 .MuiDataGrid-paper{
   border-radius: 50px;
+}
+
+.MuiTabs-flexContainer{
+  color: rgb(1, 27, 27);
+  background-color: #e3f2fd;
 }

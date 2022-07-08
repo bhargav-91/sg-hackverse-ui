@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import DataTable from './DataTables';
+import FullWidthTabs from './FullWidthTabs';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -72,7 +72,7 @@ export default function SearchAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            SG HackVerse
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -85,7 +85,7 @@ export default function SearchAppBar() {
           </Search>
         </Toolbar>
       </AppBar>
-      <DataTable></DataTable>
+      <FullWidthTabs></FullWidthTabs>
     </Box>
   );
 }

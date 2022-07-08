@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import Box from '@mui/material/Box'
-import { createTheme } from '@mui/material/styles';
-import Chip, { ChipProps } from "@mui/material/Chip";
+import Chip from "@mui/material/Chip";
 import WarningIcon from "@mui/material/Icon";
 import CheckCircleIcon from "@mui/material/Icon";
-import {  GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { red, blue } from "@mui/material/colors";
 
 function getChipProps(params) {
@@ -27,23 +24,6 @@ function getChipProps(params) {
       };
     }
   }
-
-const theme = createTheme({
-    status: {
-      danger: '#e53e3e',
-    },
-    palette: {
-      primary: {
-        main: '#0971f1',
-        darker: '#053e85',
-      },
-      neutral: {
-        main: '#64748B',
-        contrastText: '#fff',
-      },
-    },
-  });
-  
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 100 ,headerClassName: "app-theme--header"},
@@ -99,7 +79,8 @@ export default function DataTable() {
             boxShadow: 6,
             border: 1,
             '& .app-theme--header': {
-                backgroundColor: 'rgba(0, 91, 119, 0.2)',
+              color: "rgba(255, 255, 255)",
+              backgroundColor: "#00838f"
               },
             borderColor: '#1a237e',
             '& .MuiDataGrid-cell:hover': {
