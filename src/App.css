@@ -37,18 +37,22 @@
   }
 }
 
-.MuiDataGrid-root{
+.MuiDataGrid-root {
   margin-top: 2%;
   margin-left: 10%;
   margin-right: 10%;
-  box-shadow: 50px
+  box-shadow: 50px;
 }
 
-.MuiDataGrid-paper{
+.MuiDataGrid-paper {
   border-radius: 50px;
 }
 
-.MuiTabs-flexContainer{
+.MuiTabs-flexContainer {
   color: rgb(1, 27, 27);
   background-color: #e3f2fd;
+}
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
 }
