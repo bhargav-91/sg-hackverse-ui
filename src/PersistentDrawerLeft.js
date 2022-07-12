@@ -23,6 +23,8 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { Nav } from "react-bootstrap";
 import { NavLink, Routes, Route } from "react-router-dom";
 import Home from "./Home";
+import FileUpload from "./FileUpload";
+import DataTable from "./DataTables";
 
 const drawerWidth = 240;
 
@@ -147,31 +149,33 @@ export default function PersistentDrawerLeft() {
               </ListItem>
             </NavLink>
 
-            <ListItem key="FileUpload" disablePadding>
-              <ListItemButton
-                sx={{
-                  "&.Mui-selected": {
-                    backgroundColor: "#3f51b5",
-                    color: "white",
-                  },
-                  "&.Mui-focusVisible": {
-                    backgroundColor: "#3f51b5",
-                    color: "white",
-                  },
-                  ":hover": {
-                    backgroundColor: "#3f51b5",
-                    color: "white",
-                  },
-                }}
-                selected={selected}
-                {...buttonProps(1)}
-              >
-                <ListItemIcon>
-                  <UploadFileIcon />
-                </ListItemIcon>
-                <ListItemText primary="FileUpload" />
-              </ListItemButton>
-            </ListItem>
+            <NavLink to="fileUpload" id="fileUpload" className="text-link">
+              <ListItem key="FileUpload" disablePadding>
+                <ListItemButton
+                  sx={{
+                    "&.Mui-selected": {
+                      backgroundColor: "#3f51b5",
+                      color: "white",
+                    },
+                    "&.Mui-focusVisible": {
+                      backgroundColor: "#3f51b5",
+                      color: "white",
+                    },
+                    ":hover": {
+                      backgroundColor: "#3f51b5",
+                      color: "white",
+                    },
+                  }}
+                  selected={selected}
+                  {...buttonProps(1)}
+                >
+                  <ListItemIcon>
+                    <UploadFileIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="FileUpload" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
 
             <NavLink to="staticTable" id="staticTable" className="text-link">
               <ListItem key="Static Table" disablePadding>
@@ -217,6 +221,8 @@ export default function PersistentDrawerLeft() {
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/staticTable" element={<StickyHeadTable />} />
+        <Route path="/fileUpload" element={<FileUpload />} />
+        <Route path="/dashboard" element={<DataTable />} />
       </Routes>
     </Box>
   );

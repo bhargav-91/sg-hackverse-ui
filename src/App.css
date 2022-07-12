@@ -56,3 +56,14 @@
   color: inherit;
   text-decoration: inherit;
 }
+
+.file-upload {
+  padding: 200px;
+  margin-top: 40px;
+  margin-left: 200px;
+}
+.data-table {
+  margin-top: 40px;
+  padding: 2%;
+  margin-left: -140px;
+}
