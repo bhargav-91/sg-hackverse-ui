@@ -48,7 +48,7 @@ export default function DataTable(props) {
     {
       field: "id",
       headerName: "ID",
-      width: 100,
+      width: 50,
       headerClassName: "app-theme--header",
     },
     {
@@ -80,16 +80,14 @@ export default function DataTable(props) {
       headerName: "description",
       description: "This column has a value getter and is not sortable.",
       sortable: false,
-      width: 70,
+      width: 270,
       headerClassName: "app-theme--header",
-      valueGetter: (params) =>
-        `${params.row.firstName || ""} ${params.row.lastName || ""}`,
     },
     {
       field: "line_number",
       headerName: "line_number",
       type: "number",
-      width: 100,
+      width: 50,
       headerClassName: "app-theme--header",
     },
     {
@@ -104,7 +102,7 @@ export default function DataTable(props) {
       },
     },
     {
-      field: "staconfidencetus1",
+      field: "confidence",
       headerName: "confidence",
       width: 100,
       headerClassName: "app-theme--header",
@@ -112,12 +110,6 @@ export default function DataTable(props) {
     {
       field: "contracts",
       headerName: "contracts",
-      width: 100,
-      headerClassName: "app-theme--header",
-    },
-    {
-      field: "source",
-      headerName: "source",
       width: 100,
       headerClassName: "app-theme--header",
     },

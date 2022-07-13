@@ -220,6 +220,7 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Routes>
         <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/staticTable" element={<StickyHeadTable />} />
         <Route path="/fileUpload" element={<FileUpload />} />
         <Route path="/dashboard" element={<DataTable />} />
