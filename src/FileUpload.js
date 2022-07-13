@@ -89,7 +89,7 @@ const FileUpload = () => {
           {" "}
           <label htmlFor="csvInput" style={{ display: "block" }}>
             <Typography variant="h4" gutterBottom component="div">
-              Please choose the CSV file
+              Solidity file for Vulnerability-Scan
             </Typography>
           </label>
           <Button
@@ -97,7 +97,7 @@ const FileUpload = () => {
             component="label"
             startIcon={<FileUploadIcon />}
           >
-            Upload
+            UPLOAD SOLIDITY
             <input
               hidden
               onChange={handleFileChange}
@@ -127,7 +127,7 @@ const FileUpload = () => {
               startIcon={<SyncIcon />}
               onClick={handleParse}
             >
-              Parse
+              WatchDog Scan
             </Button>
           </div>
         </div>

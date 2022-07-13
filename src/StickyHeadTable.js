@@ -9,13 +9,13 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
 const columns = [
-  { id: "id", label: "ID", minWidth: 20 },
-  { id: "detector", label: "Detector", minWidth: 10 },
+  { id: "id", label: "ID", minWidth: 20, align: "left" },
+  { id: "detector", label: "WatchDog Detector", minWidth: 10, align: "left" },
   {
     id: "whatItDetects",
-    label: "What it Detects",
+    label: "What WatchDog Detects",
     minWidth: 100,
-    align: "center",
+    align: "left",
     format: (value) => value.toLocaleString("en-US"),
   },
 ];

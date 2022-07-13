@@ -56,7 +56,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -92,7 +92,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+            BlockChain WatchDog
           </Typography>
         </Toolbar>
       </AppBar>
@@ -172,7 +172,7 @@ export default function PersistentDrawerLeft() {
                   <ListItemIcon>
                     <UploadFileIcon />
                   </ListItemIcon>
-                  <ListItemText primary="FileUpload" />
+                  <ListItemText primary="WatchDog Scan" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
@@ -200,23 +200,13 @@ export default function PersistentDrawerLeft() {
                   <ListItemIcon>
                     <InboxIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Detectors" />
+                  <ListItemText primary="WatchDog Detectors" />
                 </ListItemButton>
               </ListItem>
             </NavLink>
           </Nav>
         </List>
         <Divider />
-        <List>
-          <ListItem key="Work in progress" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Work in progress" />
-            </ListItemButton>
-          </ListItem>
-        </List>
       </Drawer>
       <Routes>
         <Route path="/home" element={<Home />} />
