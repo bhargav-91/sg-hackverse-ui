@@ -53,14 +53,14 @@ export default function DataTable(props) {
     },
     {
       field: "file",
-      headerName: "file",
+      headerName: "File",
       width: 130,
       headerClassName: "app-theme--header",
     },
     {
       field: "scan_name",
-      headerName: "scan_name",
-      width: 130,
+      headerName: "Scan Name",
+      width: 100,
       headerClassName: "app-theme--header",
     },
     {
@@ -71,13 +71,13 @@ export default function DataTable(props) {
     },
     {
       field: "name",
-      headerName: "name",
+      headerName: "Name",
       width: 100,
       headerClassName: "app-theme--header",
     },
     {
       field: "description",
-      headerName: "description",
+      headerName: "Description",
       description: "This column has a value getter and is not sortable.",
       sortable: false,
       width: 270,
@@ -85,14 +85,14 @@ export default function DataTable(props) {
     },
     {
       field: "line_number",
-      headerName: "line_number",
+      headerName: "Line.No",
       type: "number",
-      width: 50,
+      width: 80,
       headerClassName: "app-theme--header",
     },
     {
       field: "impact",
-      headerName: "impact",
+      headerName: "Impact",
       width: 140,
       headerClassName: "app-theme--header",
       renderCell: (params) => {
@@ -103,24 +103,24 @@ export default function DataTable(props) {
     },
     {
       field: "confidence",
-      headerName: "confidence",
+      headerName: "Confidence",
       width: 100,
       headerClassName: "app-theme--header",
     },
     {
       field: "contracts",
-      headerName: "contracts",
+      headerName: "Contracts",
       width: 100,
       headerClassName: "app-theme--header",
     },
   ];
 
   return (
-    <div style={{ height: 500, width: 1500 }}>
+    <div style={{ height: 500, width: 1465 }}>
       <DataGrid
         rows={rowData}
         columns={columns}
-        pageSize={5}
+        pageSize={7}
         rowsPerPageOptions={[5]}
         getRowId={(rowData) => rowData.id}
         sx={{

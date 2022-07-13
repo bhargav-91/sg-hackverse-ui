@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import DataTable from "./DataTables";
 import _ from "lodash";
+import Button from "@mui/material/Button";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import SyncIcon from "@mui/icons-material/Sync";
+import Chip from "@mui/material/Chip";
+import DoneIcon from "@mui/icons-material/Done";
+import Typography from "@mui/material/Typography";
 // Allowed extensions for input file
 const allowedExtensions = ["csv"];
 
@@ -10,6 +16,7 @@ const FileUpload = () => {
   const [data, setData] = useState([]);
   const [columnData, setColumnData] = useState([]);
   const [parseComplete, setParseComplete] = useState(false);
+  const [fileName, setFileName] = useState("");
 
   // It state will contain the error when
   // correct file extension is not used
@@ -33,7 +40,7 @@ const FileUpload = () => {
     // Check if user has entered the file
     if (e.target.files.length) {
       const inputFile = e.target.files[0];
-
+      setFileName(e.target.files[0].name);
       // Check the file extensions, if it not
       // included in the allowed extensions
       // we show the error
@@ -63,6 +70,9 @@ const FileUpload = () => {
       const parsedData = csv?.data;
       const columns = Object.keys(parsedData[0]);
       setColumnData(columns);
+      parsedData.forEach(function (element) {
+        element.id = Math.floor(Math.random() * 100);
+      });
       setData([...parsedData]);
     };
     reader.readAsText(file);
@@ -78,16 +88,47 @@ const FileUpload = () => {
         <div>
           {" "}
           <label htmlFor="csvInput" style={{ display: "block" }}>
-            Enter CSV File
+            <Typography variant="h4" gutterBottom component="div">
+              Please choose the CSV file
+            </Typography>
           </label>
-          <input
-            onChange={handleFileChange}
-            id="csvInput"
-            name="file"
-            type="File"
-          />
+          <Button
+            variant="contained"
+            component="label"
+            startIcon={<FileUploadIcon />}
+          >
+            Upload
+            <input
+              hidden
+              onChange={handleFileChange}
+              id="csvInput"
+              type="File"
+            />
+          </Button>
+          <br /> <br />
+          {_.isEmpty(fileName) ? (
+            ""
+          ) : (
+            <Chip
+              label={fileName}
+              icon={<DoneIcon />}
+              variant="outlined"
+              sx={{
+                color: "darkblue",
+                backgroundColor: "lightgray",
+              }}
+            />
+          )}
+          <br /> <br />
           <div>
-            <button onClick={handleParse}>Parse</button>
+            <Button
+              variant="contained"
+              component="label"
+              startIcon={<SyncIcon />}
+              onClick={handleParse}
+            >
+              Parse
+            </Button>
           </div>
         </div>
       )}
