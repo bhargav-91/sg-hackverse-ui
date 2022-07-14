@@ -25,6 +25,7 @@ import { NavLink, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import FileUpload from "./FileUpload";
 import DataTable from "./DataTables";
+import SWCRegistry from "./SWCRegistry";
 
 const drawerWidth = 240;
 
@@ -204,6 +205,38 @@ export default function PersistentDrawerLeft() {
                 </ListItemButton>
               </ListItem>
             </NavLink>
+
+            <NavLink
+              to="smartContract"
+              id="smartContract"
+              className="text-link"
+            >
+              <ListItem key="smartContract" disablePadding>
+                <ListItemButton
+                  sx={{
+                    "&.Mui-selected": {
+                      backgroundColor: "#3f51b5",
+                      color: "white",
+                    },
+                    "&.Mui-focusVisible": {
+                      backgroundColor: "#3f51b5",
+                      color: "white",
+                    },
+                    ":hover": {
+                      backgroundColor: "#3f51b5",
+                      color: "white",
+                    },
+                  }}
+                  selected={selected}
+                  {...buttonProps(2)}
+                >
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Smart Contract Weakness Regulator" />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
           </Nav>
         </List>
         <Divider />
@@ -214,6 +247,7 @@ export default function PersistentDrawerLeft() {
         <Route path="/staticTable" element={<StickyHeadTable />} />
         <Route path="/fileUpload" element={<FileUpload />} />
         <Route path="/dashboard" element={<DataTable />} />
+        <Route path="/smartContract" element={<SWCRegistry />} />
       </Routes>
     </Box>
   );

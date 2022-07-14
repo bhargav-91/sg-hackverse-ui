@@ -8,6 +8,7 @@ import SyncIcon from "@mui/icons-material/Sync";
 import Chip from "@mui/material/Chip";
 import DoneIcon from "@mui/icons-material/Done";
 import Typography from "@mui/material/Typography";
+import axios from "axios";
 // Allowed extensions for input file
 const allowedExtensions = ["csv"];
 
@@ -17,6 +18,7 @@ const FileUpload = () => {
   const [columnData, setColumnData] = useState([]);
   const [parseComplete, setParseComplete] = useState(false);
   const [fileName, setFileName] = useState("");
+  const [dataFromAPI, setDataFromAPI] = useState([]);
 
   // It state will contain the error when
   // correct file extension is not used
@@ -26,20 +28,32 @@ const FileUpload = () => {
   const [file, setFile] = useState("");
 
   useEffect(() => {
-    console.log("this is useEffect -1 ");
-    if (!_.isEmpty(data) && !_.isEmpty(columnData)) {
+    console.log("this is useEffect ");
+    if (!_.isEmpty(data)) {
       setParseComplete(true);
     }
-  }, [data, columnData]);
+  }, [data]);
 
   // This function will be called when
   // the file input changes
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     setError("");
 
     // Check if user has entered the file
     if (e.target.files.length) {
       const inputFile = e.target.files[0];
+      const formData = new FormData();
+      formData.append("watchFile", inputFile);
+      try {
+        const response = await axios({
+          method: "post",
+          url: "http://localhost:8080/upload",
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+      } catch (error) {
+        console.log(error);
+      }
       setFileName(e.target.files[0].name);
       // Check the file extensions, if it not
       // included in the allowed extensions
@@ -55,27 +69,19 @@ const FileUpload = () => {
     }
   };
   const handleParse = () => {
-    // If user clicks the parse button without
-    // a file we show a error
-    if (!file) return setError("Enter a valid file");
-
-    // Initialize a reader which allows user
-    // to read any file or blob.
-    const reader = new FileReader();
-
-    // Event listener on reader when the file
-    // loads, we parse it and set the data.
-    reader.onload = async ({ target }) => {
-      const csv = Papa.parse(target.result, { header: true });
-      const parsedData = csv?.data;
-      const columns = Object.keys(parsedData[0]);
-      setColumnData(columns);
-      parsedData.forEach(function (element) {
-        element.id = Math.floor(Math.random() * 100);
+    console.log("Handeling parses");
+    axios
+      .get("http://localhost:8000/watch-dog-scan-report")
+      .then((response) => {
+        setDataFromAPI(response.data);
       });
-      setData([...parsedData]);
-    };
-    reader.readAsText(file);
+
+    dataFromAPI.forEach(function (element) {
+      element.id = Math.floor(Math.random() * 100);
+    });
+    setData([...dataFromAPI]);
+    console.log("Data FROM API : ", dataFromAPI);
+    console.log("Data : ", data);
   };
 
   return (
