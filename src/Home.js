@@ -1,5 +1,4 @@
 import { Container } from "@mui/system";
-import Typography from "@mui/material/Typography";
 
 const logo = require("./block-chain-watchdog.png");
 const background = require("./wolf-watch.png");

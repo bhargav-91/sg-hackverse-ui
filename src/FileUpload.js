@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Papa from "papaparse";
 import DataTable from "./DataTables";
 import _ from "lodash";
 import Button from "@mui/material/Button";
@@ -54,6 +53,7 @@ const FileUpload = () => {
       } catch (error) {
         console.log(error);
       }
+
       setFileName(e.target.files[0].name);
       // Check the file extensions, if it not
       // included in the allowed extensions

@@ -5,7 +5,6 @@ import Chip from "@mui/material/Chip";
 import WarningIcon from "@mui/material/Icon";
 import CheckCircleIcon from "@mui/material/Icon";
 import { red, blue } from "@mui/material/colors";
-import { ConstructionOutlined } from "@mui/icons-material";
 import _ from "lodash";
 
 function getChipProps(params) {
@@ -31,7 +30,6 @@ function getChipProps(params) {
 export default function DataTable(props) {
   const [rowData, setRowData] = useState([]);
   const [columnData, setColumnData] = useState([]);
-  let data = [];
 
   useEffect(() => {
     console.log("this is useEffect");
