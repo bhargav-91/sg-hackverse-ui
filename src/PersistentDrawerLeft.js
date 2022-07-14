@@ -28,6 +28,7 @@ import DataTable from "./DataTables";
 import SWCRegistry from "./SWCRegistry";
 
 const drawerWidth = 240;
+const background = require("./wolf-watch.png");
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -110,7 +111,8 @@ export default function PersistentDrawerLeft() {
         anchor="left"
         open={open}
       >
-        <DrawerHeader>
+        <DrawerHeader className="drawerHeader">
+          <img src={background} alt="wolf-back" className="image-back" />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />

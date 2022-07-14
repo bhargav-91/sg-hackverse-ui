@@ -68,15 +68,33 @@
   margin-left: -140px;
 }
 
-.image-container {
+.image-main {
+  object-fit: cover;
   height: 850px;
-  width: 2880px !important;
-  color: white;
-  background: #c04848; /* fallback for old browsers */
-  background: linear-gradient(rgba(32, 82, 190, 0.8), rgba(11, 7, 93, 0.8)),
-    url("./block-chain-watchdog.png"); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(rgba(43, 71, 172, 0.8), rgb(1, 7, 93, 0.8)),
-    url("./wolf-watch.png"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 1650px;
+}
+
+.image-back {
+  object-fit: cover;
+  height: 850px;
+  width: 1650px;
+  opacity: 0.03;
+  position: absolute;
+  left: -10px;
+}
+.image-container {
+  background-color: #6e8dbc;
+  height: 850px;
+  width: 1660px;
+  margin-left: 0px;
+}
+
+.image-div {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.drawerHeader {
+  background-color: #6e8dbc;
 }
